@@ -30,6 +30,7 @@ namespace FortuneTeller
 
 
             //PART I
+            Console.WriteLine("Welcome to Fortune Teller! \nFollow the prompt and let your fortune be told to you! \nType \"exit\" and press enter to end at anytime.\n");
             Console.WriteLine("Type your first name, press enter: ");
             firstName = Console.ReadLine();
             escape = (firstName.ToLower() == "exit");
@@ -172,13 +173,18 @@ namespace FortuneTeller
 
             //PART 3
 
-            Console.WriteLine("\n" + firstName + " " + lastName + " will retire in " + retirement + " years with $" + bankMoney + " in the bank, a vacation\nhome in " + vacationLocation + " and a " + transportation + ".");
+            Console.WriteLine("\n\nYour Fortune:\n\n" + firstName + " " + lastName + " will retire in " + retirement + " years with $" + bankMoney + " in the bank, a vacation\nhome in " + vacationLocation + " and a " + transportation + ".");
+            goto Finish;
 
         Found:
-            Console.WriteLine("Nobody likes a quitter...");
+            Console.WriteLine("\n...\nNobody likes a quitter...\n");
+            goto quitFinish;
 
+        Finish:
+            Console.WriteLine("\n\n\nProceed with excellence!  Thanks for playing!\n");
 
-
+        quitFinish:;
+        
         }
     }
 }
