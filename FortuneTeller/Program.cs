@@ -13,28 +13,60 @@ namespace FortuneTeller
             //Declare Variables
             string firstName;
             string lastName;
+            string ageString;
             int age;
+            string birthMonthString;
             int birthMonth;
             string color;
             string colorLower;
             char colorChar;
+            string sibling;
             int siblings;
             int retirement;
             string vacationLocation;
             string transportation = "walk";
             int bankMoney;
+            bool escape = false;
+
 
             //PART I
             Console.WriteLine("Type your first name, press enter: ");
             firstName = Console.ReadLine();
+            escape = (firstName.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
             Console.WriteLine("Type your last name, press enter: ");
             lastName = Console.ReadLine();
-            Console.WriteLine("Type your age, press enter: ");
-            age = int.Parse(Console.ReadLine());
+            escape = (lastName.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
+            Console.WriteLine("Type your age, press enter: ");            
+            ageString = Console.ReadLine();
+            escape = (ageString.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
+            age = int.Parse(ageString);
             Console.WriteLine("Type your birth month (as a number), press enter: ");
-            birthMonth = int.Parse(Console.ReadLine());
+            birthMonthString = Console.ReadLine();
+            escape = (birthMonthString.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
+            birthMonth = int.Parse(birthMonthString);
             Console.WriteLine("Type your favorite letter of the color spectrum ROYGBIV, or \nif you don't know what colors are in ROYGBIV, type help, then press enter:");
             color = Console.ReadLine();
+            escape = (color.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
             colorLower = color.ToLower();
             if (colorLower == "help")
             {
@@ -44,14 +76,19 @@ namespace FortuneTeller
                 colorLower = color.ToLower();
             }
             colorChar = Convert.ToChar(colorLower);
-            
-                              
             Console.WriteLine("Type your number of siblings, press enter: ");
-            siblings = int.Parse(Console.ReadLine());
+            sibling = Console.ReadLine();
+            escape = (sibling.ToLower() == "exit");
+            if (escape)
+            {
+                goto Found;
+            }
+            siblings = int.Parse(sibling);
+            
 
             //part2
-            
-            if (age%2==0)
+
+            if (age % 2 == 0)
             {
                 retirement = 2;
             }
@@ -60,7 +97,7 @@ namespace FortuneTeller
                 retirement = 3;
             }
 
-            
+
             if (siblings == 0)
             {
                 vacationLocation = "Hawaii";
@@ -86,7 +123,7 @@ namespace FortuneTeller
                 vacationLocation = "Bonndock, South Dakota";
             }
 
-            
+
             switch (colorChar)
             {
                 case 'r':
@@ -109,10 +146,10 @@ namespace FortuneTeller
                     break;
                 case 'v':
                     transportation = "helicopter";
-                    break;                                                           
+                    break;
             }
 
-            
+
             if (birthMonth >= 1 & birthMonth <= 12)
             {
                 if (birthMonth <= 4)
@@ -135,11 +172,12 @@ namespace FortuneTeller
 
             //PART 3
 
-            Console.WriteLine(firstName + " " + lastName + " will retire in " + retirement + " years with $" + bankMoney + " in the bank, a vacation home in " + vacationLocation + " and a " + transportation + ".");
-            
-                
-              
-        
+            Console.WriteLine("\n" + firstName + " " + lastName + " will retire in " + retirement + " years with $" + bankMoney + " in the bank, a vacation\nhome in " + vacationLocation + " and a " + transportation + ".");
+
+        Found:
+            Console.WriteLine("Nobody likes a quitter...");
+
+
 
         }
     }
