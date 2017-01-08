@@ -76,7 +76,7 @@ namespace FortuneTeller
                 color = Console.ReadLine();
                 colorLower = color.ToLower();
             }
-            colorChar = Convert.ToChar(colorLower);
+            colorChar = char.Parse(colorLower);
             Console.WriteLine("Type your number of siblings, press enter: ");
             sibling = Console.ReadLine();
             escape = (sibling.ToLower() == "exit");
